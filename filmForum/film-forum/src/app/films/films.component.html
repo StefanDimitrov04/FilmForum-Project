@@ -1,0 +1,14 @@
+
+
+ <div class="card" *ngFor="let film of filmList">
+    <img src={{film.filmImgUrl}} alt="Movie Poster">
+    <div class="card-content">
+        <h2><a [routerLink]="film._id">  {{film.filmName}} </a></h2>
+        <p><strong>Category:</strong> {{film.filmCategory}}</p>
+        <p>{{film.filmDescription}}</p>
+    </div>
+</div>
+
+
+
+<a></a>

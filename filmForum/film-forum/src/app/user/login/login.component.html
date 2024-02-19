@@ -1,0 +1,36 @@
+<div class="body">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+       <h2 class="active"> Login </h2>
+      <h2 class="inactive underlineHover" ><a href="/register"> Register </a></h2>
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form #form="ngForm" (ngSubmit)="login(form)">
+        <input type="text" id="login" class="fadeIn second" name="email" placeholder="email" #inputEmail="ngModel" ngModel required [appEmail]="emailDomains" >
+        <ng-container *ngIf="inputEmail.touched">
+          <p *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+          <p *ngIf="inputEmail.errors?.['emailValidator']">Invalid email!</p>
+        </ng-container>
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" #inputPassword="ngModel" ngModel required minlength="5">
+        <ng-container *ngIf="inputPassword.touched">
+          <p *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+          <p *ngIf="inputPassword.errors?.['minlength']">Password must be at least 5 characters!</p>
+        </ng-container>
+      <input type="submit" class="fadeIn fourth" value="Log In" [disabled]="form.invalid">
+      </form>
+  
+      Remind Passowrd
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>
+</div>
+

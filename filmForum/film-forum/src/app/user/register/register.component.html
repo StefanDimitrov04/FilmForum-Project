@@ -1,0 +1,40 @@
+       <div class="body">        
+        <div class="wrapper">
+            <h2>Registration</h2>
+            <form #form="ngForm" (ngSubmit)="register(form)"> 
+              <div class="input-box">
+                <input type="text" name="username" placeholder="Enter your name"  #inputUsername="ngModel"  ngModel required minlength="5">
+                <ng-container *ngIf="inputUsername.touched">
+                  <p *ngIf="inputUsername.errors?.['minlength']">Username should be at least 5characters!</p>
+                  <p *ngIf="inputUsername.errors?.['required']">Username is required!</p>
+                </ng-container>
+              </div>
+           <div class="input-box">
+                <input type="text" name="email" placeholder="Enter your email" #inputEmail="ngModel"  ngModel required [appEmail]="emailDomains">
+                <ng-container *ngIf="inputEmail.touched">
+                  <p *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+                  <p *ngIf="inputEmail.errors?.['emailValidator']">Invalid email!</p>
+                </ng-container>
+              </div>
+              <div class="input-box">
+                <input type="password" name="password" placeholder="Create password" #inputPassword="ngModel"  ngModel required minlength="5">
+                <ng-container *ngIf="inputPassword.touched">
+                  <p *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+                  <p *ngIf="inputPassword.errors?.['minlength']">Password should be at least 5symbols!</p>
+                </ng-container>
+              </div>
+              <div class="input-box">
+                <input type="password" name="rePassword" placeholder="Confirm password" #inputRepeatPassword="ngModel"  ngModel required>
+                <ng-container *ngIf="inputRepeatPassword.touched">
+                  <p *ngIf="inputPassword.value !== inputRepeatPassword.value && (inputPassword.dirty || inputRepeatPassword.dirty)" >Repeat password does not match!</p>
+                </ng-container>
+              </div>
+              <div class="input-box button">
+                <input type="Submit" value="Register Now">
+              </div>
+              <div class="text">
+                <h3>Already have an account? <a href="/login">Login now</a></h3>
+              </div>
+            </form>
+        </div>
+        </div>

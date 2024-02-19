@@ -1,0 +1,33 @@
+<div class="body">
+    <form #form="ngForm" (ngSubmit)="editFilm(form)">
+      <div class="form">
+          <div class="title">Film forum</div>
+          <div class="subtitle">Edit your film data!</div>
+          <div class="input-container ic1">
+            <input id="filmName" name="filmName" class="input" type="text" placeholder=""  #inputFilm="ngModel"[(ngModel)]="film.filmName" ngModel required />
+            <div class="cut"></div>
+            <label for="filmName" class="placeholder">Film name</label>
+            <ng-container *ngIf="inputFilm.touched">
+              <p *ngIf="inputFilm.errors?.['required']">filmName is required!</p>
+            </ng-container> 
+          </div>
+          <div class="input-container ic2">
+            <input id="filmCat" name="filmCategory" class="input" type="text" placeholder=" "  #inputCategory="ngModel" ngModel  required />
+            <div class="cut"></div>
+            <label for="filmCat" class="placeholder">Film category</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="filmDesc" name="filmDescription" class="input" type="text" placeholder=" "  #inputDescription="ngModel" ngModel  required/>
+            <div class="cut cut-short"></div>
+            <label for="filmDesc" class="placeholder">Film description</label>
+          </div>
+  
+          <div class="input-container ic2">
+              <input id="filmImg"name="filmImgUrl" class="input" type="text" placeholder=" "  #inputImgUrl="ngModel" ngModel  required/>
+              <div class="cut cut-short"></div>
+              <label for="filmImg" class="placeholder">Image Url</label>
+            </div>
+          <button type="submit" class="submit">Edit</button>
+        </div>
+      </form>
+  </div>
