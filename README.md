@@ -1,6 +1,6 @@
 Film forum project made by me(both the REST API and the Angular code)
 
-Film Forum
+
 This is a WEB application using Angular for the frontend. Used a Rest-api server for backend and MongoDB for storing data.
 
 Steps for local instalation and review:
