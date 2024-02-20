@@ -63,6 +63,12 @@ export class ApiService {
     };
 
     return this.http.put(`${appUrl}/films/${filmId}/edit`, filmData)
+  };
+
+  deleteFilm(filmId: string) {
+
+    const { appUrl } = environment;
+    return this.http.delete(`${appUrl}/films/${filmId}/delete`);
   }
 }
   

@@ -59,7 +59,7 @@ router.put('/:filmId/edit', async (req,res) => {
   }
 });
 
-router.delete('/:filmId', async(req,res) => {
+router.delete('/:filmId/delete', async(req,res) => {
     await filmManager.delete(req.params.filmId);
 })
 

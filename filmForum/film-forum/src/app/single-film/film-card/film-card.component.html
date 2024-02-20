@@ -16,8 +16,10 @@
               <button class="delete">Delete</button> -->
 
               <a href="/home/{{film?._id}}/edit" class="edit">Edit</a>
-              <a href="/home/{{film?._id}}/delete" class="delete">Delete</a>
+              <a href="/home" class="delete" (click)="deleteCurrFilm()">Delete</a>
           </div>
       </div>
   </figure>
 </div>
+
+ 

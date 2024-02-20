@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../../types/Film';
 
 
@@ -16,7 +16,7 @@ export class FilmCardComponent implements OnInit {
 
    film: Film | any ;
 
-constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute) {}
+constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchFilm();
@@ -32,5 +32,14 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       (error) => {
         console.log(error.message);
       })
-  }
+  };
+
+  deleteCurrFilm() {
+    const id = this.activatedRoute.snapshot.params['filmId'];
+
+    this.apiService.deleteFilm(id).subscribe(() => {
+      console.log('film delete successfully');
+      this.router.navigate(['/home']);  
+    });
+  };
 }
