@@ -41,10 +41,22 @@ router.get('/:filmId', async (req, res) => {
   }
 });
 
-router.put('/:filmId', async (req,res) => {
-    await filmManager.edit(req.params.filmId, req.body);
+router.put('/:filmId/edit', async (req,res) => {
+  try {
+     
+    const filmId =req.params.filmId;
+    const { filmName, filmCategory, filmDescription, filmImgUrl} = req.body;
+    const film = await filmManager.edit(filmId, {
+      filmName, 
+      filmCategory, 
+      filmDescription, 
+      filmImgUrl
+    });
 
-    res.status(204).end();
+    res.status(201).json({ message: 'Film created successfully', film });; 
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 router.delete('/:filmId', async(req,res) => {

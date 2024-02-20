@@ -27,9 +27,7 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
 
       this.apiService.getFilm(id).subscribe((film) => {
         this.film = film;
-        console.log(this.film);
-        
-        
+                
       }, 
       (error) => {
         console.log(error.message);

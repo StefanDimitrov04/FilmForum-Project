@@ -1,10 +1,10 @@
 <div class="body">
-    <form #form="ngForm" (ngSubmit)="editFilm(form)">
+    <form #form="ngForm" (ngSubmit)="newDataFilm(form)">
       <div class="form">
           <div class="title">Film forum</div>
           <div class="subtitle">Edit your film data!</div>
           <div class="input-container ic1">
-            <input id="filmName" name="filmName" class="input" type="text" placeholder=""  #inputFilm="ngModel"[(ngModel)]="film.filmName" ngModel required />
+            <input id="filmName" name="filmName" class="input" type="text" placeholder="{{film.filmName}}"  #inputFilm="ngModel" [(ngModel)]="film.filmName" ngModel required />
             <div class="cut"></div>
             <label for="filmName" class="placeholder">Film name</label>
             <ng-container *ngIf="inputFilm.touched">
@@ -12,18 +12,18 @@
             </ng-container> 
           </div>
           <div class="input-container ic2">
-            <input id="filmCat" name="filmCategory" class="input" type="text" placeholder=" "  #inputCategory="ngModel" ngModel  required />
+            <input id="filmCat" name="filmCategory" class="input" type="text" placeholder="{{film.filmCategory}}"  #inputCategory="ngModel" [(ngModel)]="film.filmCategory" ngModel  required />
             <div class="cut"></div>
             <label for="filmCat" class="placeholder">Film category</label>
           </div>
           <div class="input-container ic2">
-            <input id="filmDesc" name="filmDescription" class="input" type="text" placeholder=" "  #inputDescription="ngModel" ngModel  required/>
+            <input id="filmDesc" name="filmDescription" class="input" type="text" placeholder="{{film.filmDescription}}"  #inputDescription="ngModel"[(ngModel)]="film.filmDescription" ngModel  required/>
             <div class="cut cut-short"></div>
             <label for="filmDesc" class="placeholder">Film description</label>
           </div>
   
           <div class="input-container ic2">
-              <input id="filmImg"name="filmImgUrl" class="input" type="text" placeholder=" "  #inputImgUrl="ngModel" ngModel  required/>
+              <input id="filmImg"name="filmImgUrl" class="input" type="text" placeholder="{{film.filmImgUrl}} "  #inputImgUrl="ngModel" [(ngModel)]="film.filmImgUrl" ngModel  required/>
               <div class="cut cut-short"></div>
               <label for="filmImg" class="placeholder">Image Url</label>
             </div>

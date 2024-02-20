@@ -24,6 +24,8 @@ export class CreateFilmComponent {
       console.log("postingFilm...");
 
       const { filmName, filmCategory, filmDescription, filmImgUrl} = form.value;
+      console.log(form.value);
+      
 
    this.apiService.createFilm(filmName, filmCategory, filmDescription, filmImgUrl).subscribe(() => {
     console.log('Creating film...'); 

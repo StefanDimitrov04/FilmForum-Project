@@ -51,6 +51,19 @@ export class ApiService {
         throw error;
       }));
     }
+
+  editFilm(filmId: string, filmName: string, filmCategory: string, filmDescription: string, filmImgUrl: string){
+    const { appUrl } = environment;
+
+    const filmData = {
+      filmName,
+      filmCategory,
+      filmDescription,
+      filmImgUrl,
+    };
+
+    return this.http.put(`${appUrl}/films/${filmId}/edit`, filmData)
+  }
 }
   
   
