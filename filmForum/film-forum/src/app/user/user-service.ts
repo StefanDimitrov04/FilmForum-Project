@@ -7,8 +7,6 @@ import { User } from '../types/User';
   providedIn: 'root'
 })
 
-// const user: User
-
 export class UserService{
   
    user: User | undefined;
@@ -55,8 +53,7 @@ export class UserService{
 
       return { userToken, _id: userId };
     }
-
-    return null; // Return null if user information is not found
+    return null;
   }
 
   ngOnDestroy(): void {

@@ -5,10 +5,9 @@
     <div class="card-content">
         <h2><a [routerLink]="film._id">  {{film.filmName}} </a></h2>
         <p><strong>Category:</strong> {{film.filmCategory}}</p>
-        <p>{{film.filmDescription}}</p>
+        <p>{{film.filmDescription | slice}}</p>
     </div>
 </div>
 
 
 
-<a></a>

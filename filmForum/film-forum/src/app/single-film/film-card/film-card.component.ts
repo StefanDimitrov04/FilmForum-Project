@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../../types/Film';
+import { UserService } from '../../user/user-service';
 
 
 
@@ -16,18 +17,23 @@ export class FilmCardComponent implements OnInit {
 
    film: Film | any ;
 
-constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router) {}
+   isOwner: boolean = false;
+
+constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.fetchFilm();
   }
 
   fetchFilm(): void{
-      const id = this.activatedRoute.snapshot.params['filmId'];
+          const id = this.activatedRoute.snapshot.params['filmId'];
+          const userId = this.userService.getUser()?._id;
 
       this.apiService.getFilm(id).subscribe((film) => {
         this.film = film;
-                
+        if(this.film._ownerId == userId){
+          this.isOwner = true
+        };
       }, 
       (error) => {
         console.log(error.message);

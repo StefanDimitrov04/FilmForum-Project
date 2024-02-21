@@ -12,6 +12,7 @@ import { SingleFilmModule } from './single-film/single-film.module';
 import { FormsModule } from '@angular/forms';
 import { UserModule } from './user/user.module';
 import { AppInterceptorProvider } from './app.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppInterceptorProvider } from './app.interceptor';
     UserModule,
     userRoutingModule,
     SingleFilmModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     provideClientHydration(),

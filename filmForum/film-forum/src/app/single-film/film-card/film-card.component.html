@@ -11,10 +11,7 @@
           <p class="movie__description">
               {{film?.filmDescription}}
           </p>
-          <div class="movie__buttons">
-              <!-- <button class="edit" href="/:filmId/edit">Edit</button>
-              <button class="delete">Delete</button> -->
-
+          <div class="movie__buttons" *ngIf="isOwner">
               <a href="/home/{{film?._id}}/edit" class="edit">Edit</a>
               <a href="/home" class="delete" (click)="deleteCurrFilm()">Delete</a>
           </div>

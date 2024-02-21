@@ -5,5 +5,5 @@ export interface Film {
     filmCategory: string,
     filmDescription: string,
     filmImgUrl: string,
-    // ownerId: string,
+    ownerId: string,
 }
