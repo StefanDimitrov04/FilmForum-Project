@@ -2,15 +2,15 @@ import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { Film } from './types/Film';
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { UserService } from './user/user-service';
-import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  
   constructor(private http:HttpClient, private userService: UserService) { }
 
   getFilms() {
@@ -26,6 +26,13 @@ export class ApiService {
      return this.http.get<Film>(`${appUrl}/films/${id}`);
     
    };
+
+   myFilms(ownerId: string) {
+    const { appUrl } = environment;
+       const url = `${appUrl}/films?where=ownerId=${ownerId}`;
+
+       return this.http.get<Film[]>(url);
+   }
 
 
   createFilm(filmName: string, filmCategory: string, filmDescription: string, filmImgUrl: string) {

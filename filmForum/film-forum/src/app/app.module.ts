@@ -13,12 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { UserModule } from './user/user.module';
 import { AppInterceptorProvider } from './app.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FilmsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

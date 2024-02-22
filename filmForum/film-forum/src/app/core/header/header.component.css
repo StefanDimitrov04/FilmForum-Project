@@ -27,6 +27,8 @@
     font-weight: bold;
     transition: all 0.2s ease;
     }
+
+  
     
     .ccsticky-nav ul li a:hover {
     color: #34495E;
@@ -35,8 +37,6 @@
     section {
     width: 100%;
     padding: 50px;
-    /* background: #fff; */
-    /* background-image: url("https://scontent-sof1-2.xx.fbcdn.net/v/t1.6435-9/81287882_3553426941364800_4242144227665903616_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=300f58&_nc_ohc=zf79sHlqFBEAX8PbFjE&_nc_ht=scontent-sof1-2.xx&oh=00_AfAPbaiOA9Hrh7rH92ZOiwXDexg8b1sbizVquLm7xOg5ng&oe=65BE25FF"); */
     background-image: url("https://www.intofilm.org/intofilm-production/9628/scaledcropped/630x355/resources/9628/into-film-plus-catalogue-image-07-22.jpg");
     border-bottom: 1px solid #ccc;
     height: 350px;
@@ -45,4 +45,45 @@
     }
 
 
-    
+    /* SEARCH BOX styles */
+.search-box {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden; 
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+.search-box input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: 150px;
+  border-radius: 20px 0 0 20px; 
+}
+
+.search-box button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0; 
+}
+
+@media (max-width: 768px) {
+  .ccsticky-nav {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+
+  .search-box {
+    margin-top: 10px; /* Add some spacing between search box and other items */
+  }
+
+  .ccsticky-nav ul li {
+    margin: 0;
+  }
+}
+

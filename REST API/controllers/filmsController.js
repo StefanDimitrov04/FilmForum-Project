@@ -25,7 +25,7 @@ router.post('/create', async (req, res) => {
 
 
 router.get('/', async (req, res) => {
-  const films =  await filmManager.getAll();
+  const films =  await filmManager.getAll(req.query);
 
     res.json(films);
 });
