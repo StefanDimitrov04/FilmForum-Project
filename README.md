@@ -17,4 +17,4 @@ email: peter.john@gmail.com;
 password: asdasd;
 
 email: mariya.profile@abv.bg;
-password: mariyka1234
+password: mariya1234
