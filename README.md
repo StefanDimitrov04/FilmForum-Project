@@ -10,3 +10,11 @@ npm start - command to start the back-end server;
 Navigate to film-forum folder:
 npm install - command to install all install all packeges dependances;
 Run client Angular app - ng serve --open or ng s;
+
+
+ADDED PROFILES: 
+email: peter.john@gmail.com;
+password: asdasd;
+
+email: mariya.profile@abv.bg;
+password: mariya1234
