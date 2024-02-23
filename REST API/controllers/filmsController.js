@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const filmManager = require('../managers/filmManager');
 const { auth } = require('../middlewares/authMiddleware');
+const mongoose = require('mongoose');
 
 
 
@@ -61,6 +62,31 @@ router.put('/:filmId/edit', async (req,res) => {
 
 router.delete('/:filmId/delete', async(req,res) => {
     await filmManager.delete(req.params.filmId);
-})
+});
+
+router.post('/:filmId/like', async (req, res) => {
+  const { filmId } = req.params;
+  const { userId } = req.body; // Assuming you send the userId in the request body
+  try {
+    const film = await filmManager.getOne(filmId);
+
+    if (!film) {
+      return res.status(404).json({ message: 'Film not found' });
+    }
+
+    if (film.likes.includes(userId)) {
+      return res.status(400).json({ message: 'User has already liked the film' });
+    }
+
+    film.likes.push(userId);
+
+    await film.save();
+
+    res.status(200).json({ message: 'Film liked successfully'});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 module.exports = router;

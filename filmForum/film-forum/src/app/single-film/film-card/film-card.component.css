@@ -146,3 +146,32 @@
     color: rgb(190, 190, 71);
 
 }
+
+/* 
+LIKE BUTTON  */
+
+.like-button {
+  display: inline-block;
+}
+
+.like-button button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  align-items: center;
+  gap: 5px;
+}
+
+.like-button img {
+  width: 20px; /* Adjust the size as needed */
+}
+
+.like-button span {
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+.like-button button:hover {
+  opacity: 0.8; /* Optional: Add a hover effect */
+}

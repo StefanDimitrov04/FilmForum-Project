@@ -16,7 +16,6 @@ import { UserService } from '../../user/user-service';
 export class FilmCardComponent implements OnInit {
 
    film: Film | any ;
-
    isOwner: boolean = false;
 
 constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, private userService: UserService) {}
@@ -48,4 +47,21 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       this.router.navigate(['/home']);  
     });
   };
+
+  likeFilm() {
+    const id = this.activatedRoute.snapshot.params['filmId'];
+    const userId = this.userService.getUser()?._id;
+     if(userId){
+      this.apiService.likeFilm(id, userId).subscribe(
+        (response) => {
+          console.log('Film liked successfully', response);
+        },
+        (error) => {
+          console.error('Error liking film', error);
+        }
+      );;
+      
+     };
+    
+  }
 }

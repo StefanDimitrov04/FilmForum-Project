@@ -2,8 +2,8 @@ import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { Film } from './types/Film';
-import { Observable, catchError } from 'rxjs';
 import { UserService } from './user/user-service';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +54,7 @@ export class ApiService {
 
     return this.http.post(`${appUrl}/films/create`, filmData).pipe(
       catchError((error) => {
-        console.log('Full Error Response:', error); // Log the full error object
+        console.log('Full Error Response:', error); 
         throw error;
       }));
     }
@@ -76,6 +76,12 @@ export class ApiService {
 
     const { appUrl } = environment;
     return this.http.delete(`${appUrl}/films/${filmId}/delete`);
+  }
+
+  likeFilm(filmId: string, userId: string){
+    const {appUrl} = environment;
+
+    return this.http.post(`${appUrl}/films/${filmId}/like`, {userId})
   }
 }
   

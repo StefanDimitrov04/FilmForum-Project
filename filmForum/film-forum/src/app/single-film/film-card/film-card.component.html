@@ -15,6 +15,12 @@
               <a href="/home/{{film?._id}}/edit" class="edit">Edit</a>
               <a href="/home" class="delete" (click)="deleteCurrFilm()">Delete</a>
           </div>
+          <div class="like-button">
+    <button  (click)="likeFilm()" *ngIf="!isOwner">
+      <img src="https://www.freeiconspng.com/thumbs/youtube-like-png/youtube-like-button-png-11.png"  alt="Thumb Icon">
+      <span>{{ film?.likes?.length}}</span>
+    </button>
+  </div>
       </div>
   </figure>
 </div>

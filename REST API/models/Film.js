@@ -23,6 +23,10 @@ const filmSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "User"
     },
+    likes: [{
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+    }],
     // _id: {
         type: mongoose.Types.ObjectId
  //   }
