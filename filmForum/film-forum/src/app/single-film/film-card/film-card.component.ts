@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../../types/Film';
 import { UserService } from '../../user/user-service';
+import { LikesUpdateService } from '../likes-update.service';
 
 
 
@@ -16,9 +17,11 @@ import { UserService } from '../../user/user-service';
 export class FilmCardComponent implements OnInit {
 
    film: Film | any ;
+   likesCount: number = 0;
    isOwner: boolean = false;
 
-constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, private userService: UserService) {}
+constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, 
+  private userService: UserService, private updateLikesService: LikesUpdateService) {}
 
   ngOnInit(): void {
     this.fetchFilm();
@@ -30,8 +33,10 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
 
       this.apiService.getFilm(id).subscribe((film) => {
         this.film = film;
+      
+        this.likesCount = film.likes.length;
         if(this.film._ownerId == userId){
-          this.isOwner = true
+          this.isOwner = true;
         };
       }, 
       (error) => {
@@ -53,7 +58,9 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
     const userId = this.userService.getUser()?._id;
      if(userId){
       this.apiService.likeFilm(id, userId).subscribe(
-        (response) => {
+        (response: any) => {
+          this.likesCount = response.film.likes.length;
+          this.updateLikesService.updateLikesCount(this.likesCount);
           console.log('Film liked successfully', response);
         },
         (error) => {
@@ -62,6 +69,20 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       );;
       
      };
-    
-  }
+   };
+
+   dislikeFilm() {
+    const id = this.activatedRoute.snapshot.params['filmId'];
+    const userId = this.userService.getUser()?._id;
+    if(userId){
+      this.apiService.dislikeFilm(id, userId).subscribe((response: any) => {
+        this.likesCount = response.film.likes.length;
+        this.updateLikesService.updateLikesCount(this.likesCount);
+        console.log('disliked', response);
+      },
+      (error) => {
+        console.log('error', error);
+      });
+    }
+   };
 }

@@ -19,3 +19,5 @@ exports.getOne = (filmId) => Film.findById(filmId);
 exports.edit = (filmId, filmData) => Film.findByIdAndUpdate(filmId, filmData);
 
 exports.delete = (filmId) => Film.findByIdAndDelete(filmId);
+
+// exports.like = (likes, filmId) => Film.findByIdAndUpdate(filmId, likes);

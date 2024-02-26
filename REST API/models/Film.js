@@ -28,7 +28,7 @@ const filmSchema = new mongoose.Schema({
         ref: "User",
     }],
     // _id: {
-        type: mongoose.Types.ObjectId
+        // type: mongoose.Types.ObjectId
  //   }
 });
 

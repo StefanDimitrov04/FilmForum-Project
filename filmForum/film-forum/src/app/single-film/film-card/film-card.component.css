@@ -175,3 +175,17 @@ LIKE BUTTON  */
 .like-button button:hover {
   opacity: 0.8; /* Optional: Add a hover effect */
 }
+/* DISLIKE BUTTON */
+.like-button button:nth-child(2) {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.like-button button:nth-child(2) img {
+  width: 20px; /* Adjust the size as needed */
+}
+
+/* Optional: Add styling for the dislike button on hover */
+.like-button button:nth-child(2):hover {
+  opacity: 0.8;
+}

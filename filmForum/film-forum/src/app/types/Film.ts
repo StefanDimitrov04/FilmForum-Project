@@ -6,4 +6,5 @@ export interface Film {
     filmDescription: string,
     filmImgUrl: string,
     ownerId: string,
+    likes: string
 }

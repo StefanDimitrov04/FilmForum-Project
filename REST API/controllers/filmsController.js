@@ -66,7 +66,7 @@ router.delete('/:filmId/delete', async(req,res) => {
 
 router.post('/:filmId/like', async (req, res) => {
   const { filmId } = req.params;
-  const { userId } = req.body; // Assuming you send the userId in the request body
+  const { userId } = req.body;
   try {
     const film = await filmManager.getOne(filmId);
 
@@ -82,9 +82,36 @@ router.post('/:filmId/like', async (req, res) => {
 
     await film.save();
 
-    res.status(200).json({ message: 'Film liked successfully'});
+    res.status(200).json({ message: 'Film liked successfully', film});
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
+router.post('/:filmId/dislike', async (req, res) => {
+  const { filmId } = req.params;
+  const { userId } = req.body;
+
+  try {
+    const film = await filmManager.getOne(filmId);
+
+    if (!film) {
+      return res.status(404).json({ message: 'Film not found' });
+    }
+    const likedIndex = film.likes.indexOf(userId);
+
+    if (likedIndex === -1) {
+      return res.status(400).json({ message: 'User has not liked the film' });
+    }
+    film.likes.splice(likedIndex, 1);
+
+    await film.save();
+
+    res.json({ message: 'Film disliked successfully', film });
+  } catch (error) {
+    console.error('Error disliking film:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });

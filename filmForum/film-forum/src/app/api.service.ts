@@ -81,8 +81,13 @@ export class ApiService {
   likeFilm(filmId: string, userId: string){
     const {appUrl} = environment;
 
-    return this.http.post(`${appUrl}/films/${filmId}/like`, {userId})
-  }
+    return this.http.post(`${appUrl}/films/${filmId}/like`, {userId});
+  };
+
+  dislikeFilm(filmId: string, userId: string) {
+    const { appUrl } = environment;
+    return this.http.post(`${appUrl}/films/${filmId}/dislike`, {userId});
+  };
 }
   
   
