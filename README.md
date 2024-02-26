@@ -13,6 +13,7 @@ Run client Angular app - ng serve --open or ng s;
 
 
 ADDED PROFILES: 
+
 email: peter.john@gmail.com;
 password: asdasd;
 
