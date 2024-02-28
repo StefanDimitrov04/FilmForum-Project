@@ -1,9 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Film } from '../../types/Film';
+import { Comment, Film } from '../../types/Film';
 import { UserService } from '../../user/user-service';
 import { LikesUpdateService } from '../likes-update.service';
+import { NgForm } from '@angular/forms';
+import { CommentsService } from '../comments.service';
 
 
 
@@ -19,9 +21,10 @@ export class FilmCardComponent implements OnInit {
    film: Film | any ;
    likesCount: number = 0;
    isOwner: boolean = false;
+   comments: Comment[] = [];
 
 constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, 
-  private userService: UserService, private updateLikesService: LikesUpdateService) {}
+  private userService: UserService, private updateLikesService: LikesUpdateService, private commentsService: CommentsService) {}
 
   ngOnInit(): void {
     this.fetchFilm();
@@ -33,14 +36,15 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
 
       this.apiService.getFilm(id).subscribe((film) => {
         this.film = film;
-      
+        this.comments = film.comments;
         this.likesCount = film.likes.length;
+  
         if(this.film._ownerId == userId){
           this.isOwner = true;
         };
       }, 
       (error) => {
-        console.log(error.message);
+        console.log(error.error.message);
       })
   };
 
@@ -85,4 +89,19 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       });
     }
    };
+
+   commentOnFilm(form: NgForm) {
+    const id = this.activatedRoute.snapshot.params['filmId'];
+    const userId = this.userService.getUser()?._id;
+    const commentText = form.value.comment;
+    
+    if(userId) {
+      this.apiService.commentOnFilm(id, userId, commentText).subscribe((response: any) => {
+        this.comments = response.film.comments;
+        this.commentsService.updateComments(this.comments);
+        form.resetForm();
+        console.log('commented on film');
+     })
+    }
+   }
 }

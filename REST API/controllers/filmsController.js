@@ -116,4 +116,25 @@ router.post('/:filmId/dislike', async (req, res) => {
   }
 });
 
+router.post('/:filmId/comment', async (req, res) => {
+  const { filmId } = req.params;
+  const {userId, commentText } = req.body;
+try {
+    
+  const film = await filmManager.getOne(filmId);
+
+  if(!film){
+    return res.status(404).json({message: 'Film not found' })
+  };
+    
+  film.comments.push({userId, commentText});
+  await film.save();
+  res.status(200).json({ message: 'Comment added successfully', film });
+
+} catch (error) {
+  console.error('Error adding comment:', error);
+  res.status(500).json({ message: 'Internal server error' });
+}
+})
+
 module.exports = router;

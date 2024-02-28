@@ -36,7 +36,7 @@ import { SearchComponent } from './search/search.component';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    AppInterceptorProvider
+    AppInterceptorProvider,
   ],
   bootstrap: [AppComponent]
 })

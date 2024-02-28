@@ -27,6 +27,17 @@ const filmSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "User",
     }],
+    comments: [{
+        userId: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        required: true,
+        },
+        commentText: {
+            type: String,
+             required: true,
+        }
+    }]
     // _id: {
         // type: mongoose.Types.ObjectId
  //   }

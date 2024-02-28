@@ -6,9 +6,6 @@ import { singleFilmRoutingModule } from './film-routing.module';
 import { FormsModule } from '@angular/forms';
 import { EditFilmComponent } from './edit-film/edit-film.component';
 
-
-
-
 @NgModule({
   declarations: [
     CreateFilmComponent,
@@ -18,7 +15,7 @@ import { EditFilmComponent } from './edit-film/edit-film.component';
   imports: [
     CommonModule,
     singleFilmRoutingModule,
-    FormsModule
+    FormsModule,
   ],
 
 })

@@ -1,4 +1,4 @@
-<div class="body">
+  <div class="body">
     <figure class="movie">
       <div class="movie__hero">
         <img src="{{film?.filmImgUrl}}" alt="Rambo" class="movie__img">
@@ -21,6 +21,21 @@
             <img src="https://pngimg.com/d/dislike_PNG63.png" alt="Dislike Icon">
           </button>
           <span style="font-size: 1.2rem;">{{ likesCount}} likes</span>
+        </div>
+  
+        <div class="comment-section">
+          <div *ngIf="!isOwner">
+            <h2>Add Comment</h2>
+            <form #form="ngForm" (submit)="commentOnFilm(form)">
+              <textarea  placeholder="Write your comment" name="comment" ngModel></textarea>
+              <button type="submit">Add Comment</button>
+            </form>
+          </div>
+  
+          <h2>Comments</h2>
+          <ul>
+            <li *ngFor="let comment of comments" >{{ comment.commentText}}</li>
+          </ul>
         </div>
       </div>
     </figure>

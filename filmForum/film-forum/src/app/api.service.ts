@@ -88,6 +88,11 @@ export class ApiService {
     const { appUrl } = environment;
     return this.http.post(`${appUrl}/films/${filmId}/dislike`, {userId});
   };
+
+  commentOnFilm(filmId:string,  userId: string, commentText: string) {
+    const { appUrl } = environment;
+    return this.http.post(`${appUrl}/films/${filmId}/comment`, {userId, commentText});
+  };
 }
   
   

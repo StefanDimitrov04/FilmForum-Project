@@ -1,3 +1,5 @@
+
+
 export interface Film {
      
     _id: string,
@@ -6,5 +8,12 @@ export interface Film {
     filmDescription: string,
     filmImgUrl: string,
     ownerId: string,
-    likes: string
+    likes: string,
+    comments: Comment[],
 }
+
+export interface Comment {
+    _id: string;
+    userId: string;
+    commentText: string;
+  }

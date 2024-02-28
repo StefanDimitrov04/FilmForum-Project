@@ -47,7 +47,6 @@
 }
 
 /* EDIT AND DELETE BUTTONS */
-/* Add/Edit the styles for the buttons and adjust layout */
 .edit, .delete {
   background-color: darkblue;
   border: none;
@@ -147,8 +146,7 @@
 
 }
 
-/* 
-LIKE BUTTON  */
+/*  LIKE/DISLIKE BUTTON  */
 
 .like-button {
   display: inline-block;
@@ -164,7 +162,7 @@ LIKE BUTTON  */
 }
 
 .like-button img {
-  width: 20px; /* Adjust the size as needed */
+  width: 20px;
 }
 
 .like-button span {
@@ -173,19 +171,64 @@ LIKE BUTTON  */
 }
 
 .like-button button:hover {
-  opacity: 0.8; /* Optional: Add a hover effect */
+  opacity: 0.8; 
 }
-/* DISLIKE BUTTON */
+
 .like-button button:nth-child(2) {
   margin-left: 10px;
   margin-top: 20px;
 }
 
 .like-button button:nth-child(2) img {
-  width: 20px; /* Adjust the size as needed */
+  width: 20px; 
 }
 
-/* Optional: Add styling for the dislike button on hover */
+
 .like-button button:nth-child(2):hover {
   opacity: 0.8;
+}
+
+
+/* COMMENT SECTION */
+
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-section h2 {
+  color: #333;
+}
+
+.comment-section form {
+  margin-bottom: 15px;
+}
+
+.comment-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-section button {
+  background-color: darkblue;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.comment-section button:hover {
+  background-color: #45a049;
+}
+
+.comment-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-section li {
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }

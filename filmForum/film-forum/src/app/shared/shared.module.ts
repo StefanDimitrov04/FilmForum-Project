@@ -8,14 +8,14 @@ import { SlicePipe } from './pipes/slice.pipe';
 @NgModule({
   declarations: [
     EmailDirective,
-    SlicePipe
+    SlicePipe,
   ],
   imports: [
     CommonModule
   ],
   exports: [
     EmailDirective,
-    SlicePipe
+    SlicePipe,
   ]
 })
 export class SharedModule { }
