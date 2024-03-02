@@ -118,7 +118,8 @@ router.post('/:filmId/dislike', async (req, res) => {
 
 router.post('/:filmId/comment', async (req, res) => {
   const { filmId } = req.params;
-  const {userId, commentText } = req.body;
+  const { userId, commentText, username } = req.body;
+  console.log(req.body);
 try {
     
   const film = await filmManager.getOne(filmId);
@@ -127,7 +128,7 @@ try {
     return res.status(404).json({message: 'Film not found' })
   };
     
-  film.comments.push({userId, commentText});
+  film.comments.push({userId, username, commentText});
   await film.save();
   res.status(200).json({ message: 'Comment added successfully', film });
 

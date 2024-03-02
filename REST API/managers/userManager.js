@@ -41,10 +41,12 @@ function getAuthResult(user) {
     const token = jwt.sign(payload, "SECRETSECRET", {expiresIn: '2d'});
 
     const result = {
+        username: user.username,
         _id: user._id,
         email: user.email,
         accessToken: token,
     };
 
+    console.log(result);
     return result;
 }

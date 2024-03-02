@@ -15,5 +15,6 @@ export interface Film {
 export interface Comment {
     _id: string;
     userId: string;
+    username: string;
     commentText: string;
   }

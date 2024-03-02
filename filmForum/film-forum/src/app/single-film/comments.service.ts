@@ -14,5 +14,5 @@ export class CommentsService {
 
  updateComments(comments: Comment[]){
     this.commentsSource.next(comments);
- }
+ };
 }

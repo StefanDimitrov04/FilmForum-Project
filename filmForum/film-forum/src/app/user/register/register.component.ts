@@ -20,7 +20,7 @@ export class RegisterComponent {
     const { username, email, password, repeatPassword} =form.value;
    
   this.userService.register( username!, email!, password!, repeatPassword!).subscribe((res: any) => {
-   localStorage.setItem('email', res.email);
+   localStorage.setItem('username', res.username);
    localStorage.setItem('authToken', res.accessToken);
     localStorage.setItem('userId', res._id);
     this.router.navigate(['/home']);

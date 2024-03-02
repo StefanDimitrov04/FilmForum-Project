@@ -34,8 +34,9 @@ export class LoginComponent {
     const { email, password } = form.value;
     this.userService.login(email!, password!).subscribe(
       (res: any) => {
-        // console.log('Login successful:', res);
-        // sessionStorage.setItem('email', res.email);
+        console.log(res);
+        
+        localStorage.setItem('username', res.username);
         localStorage.setItem('authToken', res.accessToken);
         localStorage.setItem('userId', res._id);
         this.router.navigate(['/home']);

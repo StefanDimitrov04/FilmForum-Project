@@ -36,6 +36,9 @@ const filmSchema = new mongoose.Schema({
         commentText: {
             type: String,
              required: true,
+        }, 
+        username: {
+            type: String,
         }
     }]
     // _id: {

@@ -54,7 +54,6 @@ export class ApiService {
 
     return this.http.post(`${appUrl}/films/create`, filmData).pipe(
       catchError((error) => {
-        console.log('Full Error Response:', error); 
         throw error;
       }));
     }
@@ -89,9 +88,9 @@ export class ApiService {
     return this.http.post(`${appUrl}/films/${filmId}/dislike`, {userId});
   };
 
-  commentOnFilm(filmId:string,  userId: string, commentText: string) {
+  commentOnFilm(filmId:string,  userId: string, commentText: string, username: string,) {
     const { appUrl } = environment;
-    return this.http.post(`${appUrl}/films/${filmId}/comment`, {userId, commentText});
+    return this.http.post(`${appUrl}/films/${filmId}/comment`, { userId, commentText, username});
   };
 }
   

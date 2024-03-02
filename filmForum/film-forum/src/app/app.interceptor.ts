@@ -18,15 +18,6 @@ export class AppInterceptor implements HttpInterceptor {
                 withCredentials: true,
             });
         };
-
-        // const user = this.userService.getUser();
-        // if(user && user.userToken){
-        //     req = req.clone({
-        //         setHeaders: {
-        //             'X-Authorization': `Bearer ${user.userToken}`
-        //           }
-        //     })
-        // }
         return next.handle(req);
     }
 }

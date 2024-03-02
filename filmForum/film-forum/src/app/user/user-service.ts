@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, map, tap } from 'rxjs';
 import { User } from '../types/User';
 
 @Injectable({
@@ -13,10 +13,8 @@ export class UserService{
   private user$$ = new BehaviorSubject<User | undefined>(undefined);
    
   user$ = this.user$$.asObservable();
-
-  get isLogged(): boolean {
-    return !!this.user;
-  }
+  private isLoggedSubject = new BehaviorSubject<boolean>(false);
+  isLogged$: Observable<boolean> = this.isLoggedSubject.asObservable();
 
   subscription: Subscription;
   
@@ -28,7 +26,7 @@ export class UserService{
 
 
   login(email: string, password: string) {
-    return this.http.post<User>('/api/users/login', { email, password }).pipe(tap((user) => {
+    return this.http.post<User>('/api/users/login', { email, password }).pipe(tap((user) => {      
       this.user$$.next(user);
     }))
 }
@@ -46,12 +44,13 @@ export class UserService{
   };
 
   getUser() {
+    const username = localStorage.getItem('username');
     const userId = localStorage.getItem('userId');
     const userToken = localStorage.getItem('authToken');
     
     if (userToken && userId) {
 
-      return { userToken, _id: userId };
+      return { userToken, _id: userId, username };
     }
     return null;
   }
