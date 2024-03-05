@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node index.js",
     "dev" : "nodemon index.js"
+=======
+    "dev" : "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"No test specified\" && exit 1"
+>>>>>>> 92bba97f5d8a0082e491903635ff72f3f8ebf7be
   },
   "keywords": [],
   "author": "",
