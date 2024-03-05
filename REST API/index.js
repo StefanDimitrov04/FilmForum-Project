@@ -7,8 +7,8 @@ const routes = require('./routes');
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:4200', // Adjust this to your Angular app's origin
-    credentials: true, // Allow sending cookies with the request
+    origin: 'http://localhost:4200',
+    credentials: true,
   }));
 
 // app.use(cors());
@@ -33,6 +33,6 @@ app.get( '/', (req,res) => {
     res.send('hello world');
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('app is listening on port 3000');
 })
