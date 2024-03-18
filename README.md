@@ -12,7 +12,7 @@ npm install - command to install all install all packeges dependances;
 Run client Angular app - ng serve --open or ng s;
 
 
-ADDED PROFILES: 
+ALREADY LOGGED IN PROFILES: 
 
 email: peter.john@gmail.com;
 password: asdasd;
@@ -31,3 +31,7 @@ Film cards for users who are logged in, but are not owners of the film(They can 
 
 Film card for the owners(They can EDIT and DELETE the film, but can not comment, like or dislike their own film)
 ![filmCardLoggedOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/89f4174d-043d-4b0a-b54d-86b4d2750fb3)
+
+Log in page, the email should end at(@abv.bg or @gmail.com)
+Examples: asda@gmail.com, mariya.profile@gmail.com, stefan@abv.bg and etc.
+![logInPage](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/c8dd87bb-3a1d-4bfc-9429-2f5b36b96211)
