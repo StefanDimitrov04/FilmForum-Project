@@ -19,3 +19,16 @@ password: asdasd;
 
 email: mariya.profile@abv.bg;
 password: mariya1234
+
+Home screen for not logged in users:
+![homeScreenNotLogged](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/aae0339a-f978-4419-9fd5-4caddf844016)
+
+
+The cards of the films for the not logged in users:
+![filmCardNotLogged](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/71936083-720d-4062-996e-61b6062def19)
+
+Film cards for users who are logged in, but are not owners of the film:
+![filmCardLoggedNotOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/c7c14424-cfb1-471b-894f-008f007cc07e)
+
+Film card for the owners(They can EDIT and DELETE the film, but can not comment, like or dislike their own film)
+![filmCardLoggedOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/f4f93170-570d-4f45-a984-518a392d497d)
