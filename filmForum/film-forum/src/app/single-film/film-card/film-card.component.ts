@@ -5,7 +5,8 @@ import { Comment, Film } from '../../types/Film';
 import { UserService } from '../../user/user-service';
 import { LikesUpdateService } from '../likes-update.service';
 import { NgForm } from '@angular/forms';
-import { CommentsService } from '../comments.service';;
+import { CommentsService } from '../comments.service';import { ErrorService } from '../../shared/error.service';
+;
 
 
 
@@ -26,7 +27,8 @@ export class FilmCardComponent implements OnInit {
 
 
 constructor(private apiService: ApiService, private activatedRoute :ActivatedRoute, private router: Router, 
-  private userService: UserService, private updateLikesService: LikesUpdateService, private commentsService: CommentsService) {}
+  private userService: UserService, private updateLikesService: LikesUpdateService, private commentsService: CommentsService,
+  private errorService: ErrorService) {}
 
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       }, 
       (error) => {
         console.log(error.error.message);
+        this.errorService.setError(error.error.message);
       })
   };
 
@@ -76,6 +79,7 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
         },
         (error) => {
           console.error('Error liking film', error);
+          this.errorService.setError(error.error.message);
         }
       );;
       
@@ -93,6 +97,7 @@ constructor(private apiService: ApiService, private activatedRoute :ActivatedRou
       },
       (error) => {
         console.log('error', error);
+        this.errorService.setError(error.error.message);
       });
     }
    };

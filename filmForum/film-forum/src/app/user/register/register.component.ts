@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { default_domains } from '../../shared/constants';
 import { UserService } from '../user-service';
+import { ErrorService } from '../../shared/error.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent {
 
   emailDomains = default_domains;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService, private errorService: ErrorService) {}
 
   register(form: NgForm): void{
 
@@ -24,6 +25,9 @@ export class RegisterComponent {
    localStorage.setItem('authToken', res.accessToken);
     localStorage.setItem('userId', res._id);
     this.router.navigate(['/home']);
+  }, 
+  (error) => {
+    this.errorService.setError(error.error.message);
   })
 
   

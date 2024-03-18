@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmailDirective } from './validators/email.directive';
 import { SlicePipe } from './pipes/slice.pipe';
+import { ErrorsComponent } from './errors/errors.component';
 
 
 
@@ -9,6 +10,7 @@ import { SlicePipe } from './pipes/slice.pipe';
   declarations: [
     EmailDirective,
     SlicePipe,
+    ErrorsComponent,
   ],
   imports: [
     CommonModule
@@ -16,6 +18,7 @@ import { SlicePipe } from './pipes/slice.pipe';
   exports: [
     EmailDirective,
     SlicePipe,
+    ErrorsComponent
   ]
 })
 export class SharedModule { }

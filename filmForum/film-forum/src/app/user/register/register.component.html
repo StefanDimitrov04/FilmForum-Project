@@ -30,11 +30,12 @@
                 </ng-container>
               </div>
               <div class="input-box button">
-                <input type="Submit" value="Register Now">
+                <input type="Submit" value="Register Now" [disabled]="form.invalid">
               </div>
               <div class="text">
                 <h3>Already have an account? <a href="/login">Login now</a></h3>
               </div>
             </form>
         </div>
+        <app-errors></app-errors>
         </div>

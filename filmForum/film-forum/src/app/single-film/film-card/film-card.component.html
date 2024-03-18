@@ -30,9 +30,9 @@
               <textarea  placeholder="Write your comment" name="comment" ngModel></textarea>
               <button type="submit">Add Comment</button>
             </form>
-          </div>
-  
-          <h2>Comments</h2>
+          </div>  
+          <app-errors></app-errors>
+         <h2>Comments</h2>
           <ul>
             <li *ngFor="let comment of comments">
               <span class="comment-username">{{comment.username}}:</span> {{ comment.commentText}}
