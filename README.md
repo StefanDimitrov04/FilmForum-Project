@@ -23,12 +23,11 @@ password: mariya1234
 Home screen for not logged in users:
 ![homeScreenNotLogged](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/aae0339a-f978-4419-9fd5-4caddf844016)
 
+The cards of the films for the not logged in users(They can only read the description, look at the likes and the comments):
+![filmCardNotLogged](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/7326b731-8de5-4f67-b07c-2c17e91a22d3)
 
-The cards of the films for the not logged in users:
-![filmCardNotLogged](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/71936083-720d-4062-996e-61b6062def19)
-
-Film cards for users who are logged in, but are not owners of the film:
-![filmCardLoggedNotOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/c7c14424-cfb1-471b-894f-008f007cc07e)
+Film cards for users who are logged in, but are not owners of the film(They can COMMENT and LIKE or DISLIKE the film):
+![filmCardLoggedNotOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/44458a0f-ae45-4289-8090-e083cb9981e8)
 
 Film card for the owners(They can EDIT and DELETE the film, but can not comment, like or dislike their own film)
-![filmCardLoggedOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/f4f93170-570d-4f45-a984-518a392d497d)
+![filmCardLoggedOwner](https://github.com/StefanDimitrov04/FilmForum-Project/assets/115184100/89f4174d-043d-4b0a-b54d-86b4d2750fb3)
