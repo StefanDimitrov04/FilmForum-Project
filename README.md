@@ -1,4 +1,4 @@
-Film forum project made by me(both the REST API and the Angular code)
+# <span style="font-size:larger;">Film forum project made by me(both the REST API and the Angular code)</span>
 
 
 This is a WEB application using Angular for the frontend. Used a Rest-api server for backend and MongoDB for storing data.
@@ -11,9 +11,7 @@ Navigate to film-forum folder:
 npm install - command to install all install all packeges dependances;
 Run client Angular app - ng serve --open or ng s;
 
-
-ALREADY LOGGED IN PROFILES: 
-
+# <span style="font-size:larger;"> ALREADY LOGGED IN PROFILES: </span>
 email: peter.john@gmail.com;
 password: asdasd;
 
