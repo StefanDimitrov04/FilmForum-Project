@@ -44,14 +44,16 @@ export class UserService{
   };
 
   getUser() {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
     const username = localStorage.getItem('username');
     const userId = localStorage.getItem('userId');
     const userToken = localStorage.getItem('authToken');
-    
     if (userToken && userId) {
 
       return { userToken, _id: userId, username };
     }
+  }
+
     return null;
   }
 
